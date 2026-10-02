@@ -35,7 +35,7 @@ router.post('/login', async (req, res) => {
     console.log("Request body: " + req.body)
 
     //Check if the username exists in db
-    const existingUser = await prisma.users.findUnique({
+    const existingUser = await prisma.users.findFirst({
         where: { username: req.body.username}
     })
 

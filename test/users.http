@@ -6,8 +6,8 @@ POST {{API_URL}}/users
 Content-Type: application/json
 
 {
-    "username": "aaro",
-    "password": "js246"
+    "username": "aaro1",
+    "password": "ezClap"
 }
 
 ### Login
@@ -15,6 +15,6 @@ POST {{API_URL}}/users/login
 Content-Type: application/json
 
 {
-    "username": "aaro",
-    "password": "js246"
+    "username": "testerForFredde",
+    "password": "5432WoM"
 }
