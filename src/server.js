@@ -4,6 +4,9 @@ const app= express()
 require('dotenv').config()
 const PORT = process.env.PORT || 8080
 const auth = require("./middleware/authorize")
+const { PrismaClient } = require('@prisma/client')
+
+const prisma = new PrismaClient()
 
 console.log(`Node.js ${process.version}`)
 app.use(auth)
@@ -49,7 +52,7 @@ app.post('/', async (req, res) => {
 
     const hashedPw = await bcrypt.hash(req.body.password, 10)
 
-    const newUser = await WebGLShaderPrecisionFormat.users.create({
+    const newUser = await prisma.users.create({
         data: {
             username: req.body.username,
             password: hashedPw

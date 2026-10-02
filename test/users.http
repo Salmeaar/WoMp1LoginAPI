@@ -1,0 +1,11 @@
+@API_URL = http://localhost:8081
+@DEV_TOKEN = {{${{$dotenv DEV_TOKEN}}}}
+
+##Logga in
+POST {{API_URL}}/login
+Content-Type: application/json
+Authorization: Bearer {{{DEV_TOKEN}}}
+{
+    "username": "aaro",
+    "password": "js246"
+}

@@ -6,6 +6,8 @@ services:
       - .:/app
       - /app/node_modules
     ports:
-      - "8080:8080"
+      - "8080:8081"
     environment:
       - MODE
+      - DATABASE_URL
+      - JWT_STRING
