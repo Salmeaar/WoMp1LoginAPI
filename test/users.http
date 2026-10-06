@@ -1,4 +1,5 @@
 @API_URL = http://localhost:8080
+###   - https://womp1loginapi.onrender.com
 @DEV_TOKEN = {{${{$dotenv DEV_TOKEN}}}}
 
 ###Create new user
@@ -6,8 +7,15 @@ POST {{API_URL}}/users
 Content-Type: application/json
 
 {
-    "username": "aaro1",
-    "password": "ezClap"
+    "username": "trial5",
+    "password": "yaes"
+}
+
+###Testar GET
+GET {{API_URL}}/users
+
+{
+
 }
 
 ### Login

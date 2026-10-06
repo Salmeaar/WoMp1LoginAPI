@@ -9,7 +9,7 @@ const prisma = new PrismaClient()
 
 router.post('/', async (req, res) => {
     //Registering
-    console.log("Request body:"+req.body)
+    console.log("Request body:"+ req.body)
 
     const hashedPw = await bcrypt.hash(req.body.password, 10)
 
@@ -17,7 +17,7 @@ router.post('/', async (req, res) => {
         data: {
             username: req.body.username,
             password: hashedPw
-        }
+        },
     })
 
     res.send({
