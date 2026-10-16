@@ -17,7 +17,7 @@ router.post('/', async (req, res) => {
         data: {
             username: req.body.username,
             password: hashedPw
-        },
+        }
     })
 
     res.send({
@@ -57,7 +57,8 @@ router.post('/login', async (req, res) => {
     //create a jwt token for authorization
     const jwtToken = await jwt.sign({
         sub: existingUser.id,
-        name: existingUser.username
+        name: existingUser.username,
+        lobby: 1
     }, process.env.JWT_STRING, {expiresIn: '7d'})
 
     //Send needed information to user about success

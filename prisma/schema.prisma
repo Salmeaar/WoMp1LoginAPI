@@ -12,3 +12,13 @@ model users {
   username String @db.VarChar
   password String @db.VarChar
 }
+
+model refresh_tokens {
+  id         Int       @default(autoincrement())
+  user_id    Int
+  token      String?   @db.VarChar
+  issued_at  DateTime? @db.Date
+  expires_at DateTime? @db.Date
+
+  @@id([id, user_id], map: "PK_refresh_tokens")
+}
