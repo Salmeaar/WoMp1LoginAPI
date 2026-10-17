@@ -57,7 +57,7 @@ router.delete('/', async (req, res) => {
     }
 
     const result = await prisma.refresh_tokens.deleteMany({
-        where: { user_id: req.sub, token: refreshToken }
+        where: { token: refreshToken }
     })
 
     if (result.count === 0) {
