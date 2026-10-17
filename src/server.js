@@ -18,7 +18,7 @@ const usersRouter = require('./routes/users')
 app.use('/users', usersRouter)
 
 const refreshRouter = require('./routes/refresh')
-app.use('/users', refreshRouter)
+app.use('/refresh', refreshRouter)
 
 
 

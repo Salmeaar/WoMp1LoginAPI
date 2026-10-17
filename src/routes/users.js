@@ -55,17 +55,33 @@ router.post('/login', async (req, res) => {
 
 
     //create a jwt token for authorization
-    const jwtToken = await jwt.sign({
+    const jwtAccess = await jwt.sign({
+        sub: existingUser.id,
+        name: existingUser.username
+        
+    }, process.env.JWT_STRING, {expiresIn: '15min'})
+
+    const jwtRefresh = await jwt.sign({
         sub: existingUser.id,
         name: existingUser.username,
         lobby: 1
-    }, process.env.JWT_STRING, {expiresIn: '7d'})
+    }, process.env.JWT_STRING, {expiresIn: '30d'})
+
+    await prisma.refresh_tokens.create({
+        data:{
+            user_id: existingUser.id,
+            token: jwtRefresh,
+            issued_at: new Date(),
+            expires_at: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000)
+        }
+    })
 
     //Send needed information to user about success
     res.send({
         msg: "Login succeeded",
         id: existingUser.id,
-        jwt: jwtToken
+        jwtAccess: jwtAccess,
+        jwtRef: jwtRefresh
     })
 
 })

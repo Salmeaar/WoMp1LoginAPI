@@ -1,6 +1,8 @@
-@API_URL = https://womp1loginapi.onrender.com
-###  http://localhost:8080 - 
+@API_URL = http://localhost:8080
+###   - https://womp1loginapi.onrender.com
 @DEV_TOKEN = {{${{$dotenv DEV_TOKEN}}}}
+
+@REF_TOKEN = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjYsIm5hbWUiOiJ0ZXN0ZXJGb3JGcmVkZGUiLCJsb2JieSI6MSwiaWF0IjoxNzkyMjM5ODcxLCJleHAiOjE3OTQ4MzE4NzF9.Csj7JEUHl2KTXnGWdmaTiaAqhS5dTdlfctUHGULBmmY
 
 ###Create new user
 POST {{API_URL}}/users
@@ -9,6 +11,25 @@ Content-Type: application/json
 {
     "username": "works",
     "password": "yaes"
+}
+###
+POST {{API_URL}}/refresh
+Content-Type: application/json
+jwtRef: Bearer {{REF_TOKEN}}
+jwtAccess: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwid2FzZCI6ImF3ZGFzZCJ9.-pqqYQjoqvpKyuLHfp76-IwQY2Y-3dBf7-QpdT9I0eE
+
+{
+
+}
+
+###
+DELETE {{API_URL}}/refresh
+Content-Type: application/json
+jwtRef: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjYsIm5hbWUiOiJ0ZXN0ZXJGb3JGcmVkZGUiLCJsb2JieSI6MSwiaWF0IjoxNzkyMjM5ODcxLCJleHAiOjE3OTQ4MzE4NzF9.Csj7JEUHl2KTXnGWdmaTiaAqhS5dTdlfctUHGULBmmY
+jwtAccess: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjYsIm5hbWUiOiJ0ZXN0ZXJGb3JGcmVkZGUiLCJpYXQiOjE3OTIyNDA3MzMsImV4cCI6MTc5MjI0MTYzM30.wVM6B1SCmXQ0vHfeRzF4QYq6iYFFR7WZqWqcGk9HWFQ
+
+{
+    
 }
 
 ###Testar GET
